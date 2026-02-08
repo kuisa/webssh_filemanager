@@ -1,5 +1,40 @@
 # Changelog
 
+## [5.0.0](https://github.com/kuisa/webssh_filemanager/compare/webssh2-server-v4.0.1...webssh2-server-v5.0.0) (2026-02-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* **ux:** Error responses are now JSON-only. Clients must handle the 'connection-error' event to display connection failures.
+* **sftp:** SFTP protocol updated - clients must not send transferId in start requests; use server-provided ID from response.
+
+### Features
+
+* add server-side generic prompt interface ([#465](https://github.com/kuisa/webssh_filemanager/issues/465)) ([e96f979](https://github.com/kuisa/webssh_filemanager/commit/e96f979cbf3b034ff075b6e6d783fe56c164320b))
+* add SFTP support, fixes [#322](https://github.com/kuisa/webssh_filemanager/issues/322) ([cc5d932](https://github.com/kuisa/webssh_filemanager/commit/cc5d93214b244cac5692ecd6ebb6871d508f1f39))
+* **debug:** add ssh2 protocol-level debug logging ([#469](https://github.com/kuisa/webssh_filemanager/issues/469)) ([e4ba8fa](https://github.com/kuisa/webssh_filemanager/commit/e4ba8fa62153e73ae496bd4c8054fdea4cad7f1a))
+* **docker:** append Docker image info to GitHub releases [skip ci] ([2911905](https://github.com/kuisa/webssh_filemanager/commit/29119059d695f457efdcc50183f67f416c184f12))
+* **docs:** add keyboard capture documentation and quick reference ([7b08ca5](https://github.com/kuisa/webssh_filemanager/commit/7b08ca512c7bc8c3a000f0cc4a61b18918575029))
+* Implemented rate limiting and output truncation features in the SSH service to prevent memory overflow during high-volume output. fixes [#451](https://github.com/kuisa/webssh_filemanager/issues/451) ([b575bba](https://github.com/kuisa/webssh_filemanager/commit/b575bba1445ff15aba596f5a52314dfae506156b))
+* update webssh2_client to version 2.2.0 ([ffdb9b7](https://github.com/kuisa/webssh_filemanager/commit/ffdb9b701fe7e6a86195dfd8a32d06e4a295f73d))
+* **ux:** client-side connection error modal with algorithm debugging ([#476](https://github.com/kuisa/webssh_filemanager/issues/476)) ([2236a4e](https://github.com/kuisa/webssh_filemanager/commit/2236a4eff14d2540f2c823fa0eb17b2154b41907))
+
+
+### Bug Fixes
+
+* **ci:** use PAT_WORKFLOW token for Docker build dispatch [skip ci] ([0e1c280](https://github.com/kuisa/webssh_filemanager/commit/0e1c2802a21267d3bd4c677ff14e19658fca691e))
+* csp headers upgrade-insecure-requests cause browser to attempt https, removed. fixes [#434](https://github.com/kuisa/webssh_filemanager/issues/434) ([#435](https://github.com/kuisa/webssh_filemanager/issues/435)) ([ac87aaf](https://github.com/kuisa/webssh_filemanager/commit/ac87aaf833158029c94570ab56c936de7bdd0611))
+* **docker:** optimize builder stage and add timeout ([d07df7b](https://github.com/kuisa/webssh_filemanager/commit/d07df7b9837c5a5ec5583f7c30eef2df78ae9097))
+* package.json & package-lock.json to reduce vulnerabilities ([#440](https://github.com/kuisa/webssh_filemanager/issues/440)) ([6e3261b](https://github.com/kuisa/webssh_filemanager/commit/6e3261b6a9aaf1b7ea685831afb48779593d962b))
+* package.json & package-lock.json to reduce vulnerabilities ([#453](https://github.com/kuisa/webssh_filemanager/issues/453)) ([9a9719b](https://github.com/kuisa/webssh_filemanager/commit/9a9719b814a9f07a07f6bb5745be0611804e5018))
+* **perf:** binary WebSocket transport and backpressure fix ([#479](https://github.com/kuisa/webssh_filemanager/issues/479)) ([2cc6ba0](https://github.com/kuisa/webssh_filemanager/commit/2cc6ba0b8b9f08db136c53080efef219eae767a9))
+* private key authentication not working with config credentials ([#443](https://github.com/kuisa/webssh_filemanager/issues/443)) ([e43c811](https://github.com/kuisa/webssh_filemanager/commit/e43c811ce38eddb2ddf3d04a50c5158af46a0532))
+* Refactor constants import paths and enhance SSH output handling ([b575bba](https://github.com/kuisa/webssh_filemanager/commit/b575bba1445ff15aba596f5a52314dfae506156b))
+* respect config ssh port ([#432](https://github.com/kuisa/webssh_filemanager/issues/432)) ([dcaf257](https://github.com/kuisa/webssh_filemanager/commit/dcaf2574fade5f517c13dbb7e88eccc61c2e1fcd))
+* **sftp:** server-side transfer ID generation and ownership verification ([#467](https://github.com/kuisa/webssh_filemanager/issues/467)) ([e3ebea2](https://github.com/kuisa/webssh_filemanager/commit/e3ebea2776611a601491b97f96c89cd69ada0bfb))
+* SSH algorithm env var precedence and debug output improvements ([#460](https://github.com/kuisa/webssh_filemanager/issues/460)) ([bceb5b8](https://github.com/kuisa/webssh_filemanager/commit/bceb5b85bc7faeac610ec28957fd0640b2247e38)), closes [#459](https://github.com/kuisa/webssh_filemanager/issues/459)
+* **ssh:** ensure environment variable algorithms are always honored ([#473](https://github.com/kuisa/webssh_filemanager/issues/473)) ([9a9077b](https://github.com/kuisa/webssh_filemanager/commit/9a9077beb9d795cf5f266764972005a2222c9e07))
+
 ## [4.0.1](https://github.com/billchurch/webssh2/compare/webssh2-server-v4.0.0...webssh2-server-v4.0.1) (2026-02-07)
 
 
